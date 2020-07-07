@@ -17,7 +17,7 @@ public class MainTest {
 
         Main.main(new String[]{"6", "2"});
 
-        Assert.assertEquals("6/2=3\n", bos.toString());
+        Assert.assertEquals("6/2=3\r\n", bos.toString());
 
         System.setOut(originalOut);
     }
@@ -25,5 +25,10 @@ public class MainTest {
     @Test(expected = IllegalArgumentException.class)
     public void testCasKo() {
         Main.main(new String[]{"abcd"});
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivisionZero() {
+        Main.main(new String[]{"10", "0"});
     }
 }
